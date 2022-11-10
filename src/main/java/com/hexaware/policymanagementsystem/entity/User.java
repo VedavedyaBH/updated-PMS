@@ -22,7 +22,7 @@ public class User {
 	
 	
 	public User(String pan, Long userId, String fName, String lName, String userName, String email, LocalDate dob,
-			int pNumber, int salary, String password, Address address, List<Policy> policyList) {
+			String pNumber, int salary, String password, Address address, List<Policy> policyList) {
 		super();
 		this.pan = pan;
 		this.userId = userId;
@@ -66,7 +66,7 @@ public class User {
 	private LocalDate dob; 
 	
 	@Column(name = "pNumber")
-	private int pNumber ;
+	private String pNumber ;
 	
 	@Column(name = "salary")
 	private int salary ;
@@ -161,10 +161,10 @@ public class User {
 	public void setDob(LocalDate dob) {
 		this.dob = dob;
 	}
-	public int getpNumber() {
+	public String getpNumber() {
 		return pNumber;
 	}
-	public void setpNumber(int pNumber) {
+	public void setpNumber(String pNumber) {
 		this.pNumber = pNumber;
 	}
 	public int getSalary() {
