@@ -29,7 +29,6 @@ public class AddressServiceImpl implements AddressService {
 	@Override
 	public Address updateAddressById(Address address, Long addressId) throws ResourceNotFoundException {
 		Address oldaddressdetails = findAddressById(addressId).orElseThrow(()-> new ResourceNotFoundException("Address"));
-		oldaddressdetails.setStreetName(address.getStreetName());
 		return addressrepo.save(oldaddressdetails);
 	}
 

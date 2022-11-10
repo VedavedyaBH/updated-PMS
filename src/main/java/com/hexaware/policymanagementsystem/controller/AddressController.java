@@ -58,11 +58,7 @@ public class AddressController {
 			 @PathVariable("addressId")Long addressId )throws Exception {
 		Address exsistingAddress = aServices.findAddressById(addressId)
 				.orElseThrow(()-> new Exception("address not found with id" + addressId));
-		exsistingAddress.setStreetName(address.getStreetName());
-		exsistingAddress.setDoorNum(address.getDoorNum());
-		exsistingAddress.setPincode(address.getPincode());
 		exsistingAddress.setCity(address.getCity());
-		exsistingAddress.setUserId(address.getUserId());
 		return aServices.updateAddressById(exsistingAddress,addressId);
 	}
 	

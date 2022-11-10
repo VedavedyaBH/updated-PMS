@@ -8,6 +8,8 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
@@ -19,9 +21,32 @@ import javax.persistence.Table;
 public class User {
 	
 	
+	public User(String pan, Long userId, String fName, String lName, String userName, String email, LocalDate dob,
+			int pNumber, int salary, String password, Address address, List<Policy> policyList) {
+		super();
+		this.pan = pan;
+		this.userId = userId;
+		this.fName = fName;
+		this.lName = lName;
+		this.userName = userName;
+		this.email = email;
+		this.dob = dob;
+		this.pNumber = pNumber;
+		this.salary = salary;
+		this.password = password;
+		this.address = address;
+		this.policyList = policyList;
+	}
+
+
+
+
+
+
 	@Column(name = "pan")
 	private String pan; 
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "userid")
 	private Long userId;
 	
@@ -46,8 +71,17 @@ public class User {
 	@Column(name = "salary")
 	private int salary ;
 	
+	@Column(name = "password")
+	private String password;
 	
 	
+	
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
 	public User() {
 		// TODO Auto-generated constructor stub
 	}
@@ -55,20 +89,7 @@ public class User {
 	
 	
 	
-	public User(Long userId, String pan, String fName, String lName, String userName, String email, LocalDate dob,
-			int pNumber, int salary) {
-		super();
-		this.userId = userId;
-		this.pan = pan;
-		this.fName = fName;
-		this.lName = lName;
-		this.userName = userName;
-		this.email = email;
-		this.dob = dob;
-		this.pNumber = pNumber;
-		this.salary = salary;
-	}
-	
+
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="addressid_fk")
