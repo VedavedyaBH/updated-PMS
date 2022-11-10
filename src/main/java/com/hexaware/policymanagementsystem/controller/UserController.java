@@ -68,6 +68,7 @@ public class UserController {
 		existingUser.setDob(user.getDob());
 		existingUser.setEmail(user.getEmail());
 		existingUser.setpNumber(user.getpNumber());
+		existingUser.setPassword(user.getPassword());
 		existingUser.setSalary(user.getSalary());
 		
 				return uServices.updateUserById(existingUser, userId);
